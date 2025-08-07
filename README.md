@@ -50,7 +50,7 @@ The model is trained using the scikit-learn library and serialized using `pickle
 ### 🔧 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/startup-profit-predictor.git
+git clone https://github.com/SamStephen007/startup-profit-predictor.git
 cd startup-profit-predictor
 ````
 
