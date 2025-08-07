@@ -1,10 +1,4 @@
-Here's a well-structured `README.md` file for your **Startup Profit Prediction using Ridge Regression** project.
 
----
-
-### 📄 `README.md`
-
-```markdown
 # 🚀 Startup Profit Prediction using Ridge Regression
 
 This project predicts the profit of a startup based on various investment features using Ridge Regression. It is built with Python, trained on the `50_Startups.csv` dataset, and deployed as a Flask web application.
@@ -25,23 +19,21 @@ The model is trained using the scikit-learn library and serialized using `pickle
 
 ---
 
-## 🗂️ Project Structure
+## 🗂 Project Structure
 
 ```
-
 ├── Images
-│   └── Figure\_1.png
+│   └── Figure_1.png
 ├── model
-│   ├── ridge\_model.pkl
+│   ├── ridge_model.pkl
 │   └── features.pkl
 ├── templates
 │   └── index.html
-├── 50\_startups.csv
+├── 50_startups.csv
 ├── app.py
 ├── startup.py
 └── README.md
-
-````
+```
 
 ---
 
@@ -52,7 +44,7 @@ The model is trained using the scikit-learn library and serialized using `pickle
 ```bash
 git clone https://github.com/SamStephen007/startup-profit-predictor.git
 cd startup-profit-predictor
-````
+```
 
 ### 🐍 2. Install Dependencies
 
@@ -61,15 +53,14 @@ pip install -r requirements.txt
 ```
 
 **`requirements.txt`**
-
-```txt
+```
 flask
 numpy
 pandas
 scikit-learn
 ```
 
-### ⚙️ 3. Train the Model (Optional)
+### ⚙ 3. Train the Model (Optional)
 
 If you want to retrain:
 
@@ -78,7 +69,6 @@ python startup.py
 ```
 
 This will generate:
-
 * `model/ridge_model.pkl`
 * `model/features.pkl`
 
@@ -92,11 +82,11 @@ Then visit: [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## 🖥️ Frontend
+## 🖥 Frontend
 
 The frontend is a simple HTML form (`templates/index.html`) that collects input for:
 
-* R\&D Spend
+* R&D Spend
 * Administration
 * Marketing Spend
 * State
@@ -107,16 +97,14 @@ Upon submission, it displays the predicted profit from the ML model.
 
 ## 📊 Example Prediction
 
-```
-Input:
+**Input:**
 - R&D Spend: 165000
 - Administration: 120000
 - Marketing Spend: 300000
 - State: California
 
-Output:
+**Output:**
 - Predicted Profit: $192,221.42
-```
 
 ---
 
@@ -133,12 +121,7 @@ Output:
 
 ---
 
+## 🙋‍♂ Author
 
-## 🙋‍♂️ Author
-
-**Sam Stephen**
+**Sam Stephen**  
 If you like this project, feel free to ⭐ it or suggest improvements.
-
-```
-
----
