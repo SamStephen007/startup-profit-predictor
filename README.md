@@ -111,7 +111,7 @@ Upon submission, it displays the predicted profit from the ML model.
 ## 📸 Visualizations
 
 ![Data Analysis](Images/Figure_1.png)
-
+![Data Analysis](Images/image.png)
 ---
 
 ## 📁 Dataset
