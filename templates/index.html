@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4bb543;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .left-panel {
+            flex: 1;
+            padding: 40px;
+            background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .right-panel {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .prediction {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(76, 201, 240, 0.1);
+            border-left: 4px solid var(--accent-color);
+            text-align: center;
+            font-weight: 500;
+            color: var(--dark-color);
+            display: none;
+        }
+        
+        .prediction.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .features {
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .feature-text h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+        
+        .feature-text p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-panel {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Profit Predictor</h1>
+            <p class="subtitle">Predict your company's profit based on R&D, Administration, and Marketing expenses</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-text">
+                        <h3>Machine Learning Model</h3>
+                        <p>Powered by Ridge Regression algorithm</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-text">
+                        <h3>Instant Results</h3>
+                        <p>Get predictions in real-time</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-text">
+                        <h3>Accurate Forecasts</h3>
+                        <p>Based on historical business data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <form action="/predict" method="POST">
+                <div class="form-group">
+                    <label for="rd">R&D Spend ($)</label>
+                    <input type="number" id="rd" name="rd" placeholder="Enter R&D budget" required step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="admin">Administration ($)</label>
+                    <input type="number" id="admin" name="admin" placeholder="Enter administration costs" required step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="marketing">Marketing Spend ($)</label>
+                    <input type="number" id="marketing" name="marketing" placeholder="Enter marketing budget" required step="0.01" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state" name="state" required>
+                        <option value="" disabled selected>Select your state</option>
+                        <option value="California">California</option>
+                        <option value="Florida">Florida</option>
+                        <option value="New York">New York</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Predict Profit</button>
+            </form>
+            
+            {% if prediction_text %}
+            <div class="prediction show">
+                {{ prediction_text }}
+            </div>
+            {% else %}
+            <div class="prediction" id="predictionResult"></div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
